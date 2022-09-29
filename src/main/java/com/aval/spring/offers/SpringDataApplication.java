@@ -1,4 +1,4 @@
-package com.ledenov.spring.springboot.spring_data_jpa;
+package com.aval.spring.offers;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
