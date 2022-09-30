@@ -16,14 +16,19 @@ public class Offers {
     @Column(name = "date_change")
     private String date;
 
+    @OneToOne
+    @JoinColumn(name = "id")
+    private OfferFeedback feedback;
+
     public Offers() {
     }
 
-    public Offers(int id, String name, int category, String date) {
+    public Offers(int id, String name, int category, String date, OfferFeedback feedback) {
         this.id = id;
         this.name = name;
         this.category = category;
         this.date = date;
+        this.feedback = feedback;
     }
 
     public int getId() {
@@ -58,5 +63,12 @@ public class Offers {
         this.date = date;
     }
 
+    public OfferFeedback getFeedback() {
+        return feedback;
+    }
+
+    public void setFeedback(OfferFeedback feedback) {
+        this.feedback = feedback;
+    }
 
 }
