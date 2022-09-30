@@ -11,24 +11,23 @@ public class Offers {
     private int id;
     @Column(name = "name")
     private String name;
-    @Column(name = "category")
-    private int category;
-    @Column(name = "date_change")
-    private String date;
 
     @OneToOne
     @JoinColumn(name = "id")
     private OfferFeedback feedback;
 
+    @OneToOne
+    @JoinColumn(name = "category")
+    private OfferSubject subject;
+
     public Offers() {
     }
 
-    public Offers(int id, String name, int category, String date, OfferFeedback feedback) {
+    public Offers(int id, String name, OfferFeedback feedback, OfferSubject subject) {
         this.id = id;
         this.name = name;
-        this.category = category;
-        this.date = date;
         this.feedback = feedback;
+        this.subject = subject;
     }
 
     public int getId() {
@@ -47,22 +46,6 @@ public class Offers {
         this.name = name;
     }
 
-    public int getCategory() {
-        return category;
-    }
-
-    public void setCategory(int category) {
-        this.category = category;
-    }
-
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
-    }
-
     public OfferFeedback getFeedback() {
         return feedback;
     }
@@ -71,4 +54,11 @@ public class Offers {
         this.feedback = feedback;
     }
 
+    public OfferSubject getSubject() {
+        return subject;
+    }
+
+    public void setSubject(OfferSubject subject) {
+        this.subject = subject;
+    }
 }
