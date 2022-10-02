@@ -13,7 +13,7 @@ public class FeedbackState {
     @Column(name = "id")
     private int id;
     @Column(name = "name")
-    private String name;
+    private String state;
 
     @OneToMany(mappedBy = "feedbackState")
     @JsonIgnore
@@ -22,26 +22,18 @@ public class FeedbackState {
     public FeedbackState() {
     }
 
-    public FeedbackState(int id, String name, List <OfferFeedback> offerFeedback) {
+    public FeedbackState(int id, String state, List <OfferFeedback> offerFeedback) {
         this.id = id;
-        this.name = name;
+        this.state = state;
         this.offerFeedback = offerFeedback;
     }
 
-    public int getId() {
-        return id;
+    public String getState() {
+        return state;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
+    public void setState(String state) {
+        this.state = state;
     }
 
     public List<OfferFeedback> getOfferFeedback() {
