@@ -21,14 +21,19 @@ public class OfferFeedback {
     @JsonIgnore
     private Offers offers;
 
+    @ManyToOne
+    @JoinColumn(name = "state")
+    private FeedbackState feedbackState;
+
     public OfferFeedback() {
     }
 
-    public OfferFeedback(String description, String date, Offers offers) {
-
+    public OfferFeedback(int id, String description, String date, Offers offers, FeedbackState feedbackState) {
+        this.id = id;
         this.description = description;
         this.date = date;
         this.offers = offers;
+        this.feedbackState = feedbackState;
     }
 
     public String getDescription() {
@@ -53,5 +58,13 @@ public class OfferFeedback {
 
     public void setOffers(Offers offers) {
         this.offers = offers;
+    }
+
+    public FeedbackState getFeedbackState() {
+        return feedbackState;
+    }
+
+    public void setFeedbackState(FeedbackState feedbackState) {
+        this.feedbackState = feedbackState;
     }
 }
