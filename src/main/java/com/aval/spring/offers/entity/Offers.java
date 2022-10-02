@@ -12,6 +12,7 @@ public class Offers {
     @Column(name = "name")
     private String name;
 
+
     @OneToOne
     @JoinColumn(name = "id")
     private OfferFeedback feedback;

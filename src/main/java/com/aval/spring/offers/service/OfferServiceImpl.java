@@ -28,4 +28,5 @@ public class OfferServiceImpl implements OfferService{
         }
         return offers;
     }
+
 }

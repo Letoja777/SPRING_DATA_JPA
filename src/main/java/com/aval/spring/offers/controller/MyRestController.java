@@ -1,6 +1,5 @@
 package com.aval.spring.offers.controller;
 
-import com.aval.spring.offers.dao.OffersRepository;
 import com.aval.spring.offers.entity.Offers;
 import com.aval.spring.offers.service.OfferService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,4 +29,5 @@ public class MyRestController {
         Offers offers = offersService.getOfferById(id);
         return offers;
     }
+
 }

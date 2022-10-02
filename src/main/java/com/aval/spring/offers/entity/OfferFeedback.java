@@ -1,6 +1,8 @@
 package com.aval.spring.offers.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.annotations.NotFound;
+import org.hibernate.annotations.NotFoundAction;
 
 import javax.persistence.*;
 
@@ -17,6 +19,9 @@ public class OfferFeedback {
     @Column(name = "date_create")
     private String date;
 
+    @Column(name = "customer")
+    private String customer;
+
     @OneToOne(mappedBy = "feedback")
     @JsonIgnore
     private Offers offers;
@@ -29,16 +34,23 @@ public class OfferFeedback {
     @JoinColumn(name = "user_id")
     private ManagerInfo managerInfo;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @NotFound(action = NotFoundAction.IGNORE)
+    @JoinColumn(name = "id_comment")
+    private FeedbackComment feedbackComment;
+
     public OfferFeedback() {
     }
 
-    public OfferFeedback(int id, String description, String date, Offers offers, FeedbackState feedbackState, ManagerInfo managerInfo) {
+    public OfferFeedback(int id, String description, String date, String customer, Offers offers, FeedbackState feedbackState, ManagerInfo managerInfo, FeedbackComment feedbackComment) {
         this.id = id;
         this.description = description;
         this.date = date;
+        this.customer = customer;
         this.offers = offers;
         this.feedbackState = feedbackState;
         this.managerInfo = managerInfo;
+        this.feedbackComment = feedbackComment;
     }
 
     public String getDescription() {
@@ -79,5 +91,13 @@ public class OfferFeedback {
 
     public void setManagerInfo(ManagerInfo managerInfo) {
         this.managerInfo = managerInfo;
+    }
+
+    public FeedbackComment getFeedbackComment() {
+        return feedbackComment;
+    }
+
+    public void setFeedbackComment(FeedbackComment feedbackComment) {
+        this.feedbackComment = feedbackComment;
     }
 }
