@@ -29,4 +29,9 @@ public class OfferServiceImpl implements OfferService{
         return offers;
     }
 
+    @Override
+    public List<Offers> getOfferByName(String name) {
+        return offersRepository.findOffersByNameContainsIgnoreCase(name);
+    }
+
 }
