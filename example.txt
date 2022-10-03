@@ -1,0 +1,52 @@
+[
+        {
+        "id": 310,
+        "name": "PL TOP-UP",
+        "feedback": {
+        "description": "Не прослухав умов (відмовився)",
+        "date": "2022-09-28",
+        "feedbackState": {
+        "state": "Презентація"
+        },
+        "managerInfo": {
+        "lastname": "Леденьов",
+        "firstname": "Олександр",
+        "patronymic": "Михайлович",
+        "struct": {
+        "channel": "Відділ підтримки внутрішніх процесів"
+        }
+        },
+        "feedbackComment": {
+        "comment": "клієнт відмовився"
+        }
+        },
+        "subject": {
+        "name": "Кредит готівкою"
+        }
+        },
+        {
+        "id": 312,
+        "name": "CC-X-SELL",
+        "feedback": {
+        "description": "На сьогоднішній день немає потреби",
+        "date": "2022-09-28",
+        "feedbackState": {
+        "state": "Презентація"
+        },
+        "managerInfo": {
+        "lastname": "Корсаков",
+        "firstname": "Дмитро",
+        "patronymic": "Анатолійович",
+        "struct": {
+        "channel": "Відділ підтримки внутрішніх процесів"
+        }
+        },
+        "feedbackComment": {
+        "comment": "немає потреби на сьогоднішній день"
+        }
+        },
+        "subject": {
+        "name": "Кредитна карта"
+        }
+        }
+        ]

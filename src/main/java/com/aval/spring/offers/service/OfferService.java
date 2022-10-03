@@ -1,6 +1,5 @@
 package com.aval.spring.offers.service;
 
-import com.aval.spring.offers.dao.OffersRepository;
 import com.aval.spring.offers.entity.Offers;
 
 import java.util.List;
