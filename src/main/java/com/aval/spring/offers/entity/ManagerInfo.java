@@ -27,6 +27,9 @@ public class ManagerInfo {
     @OneToOne
     @JoinColumn(name = "struct")
     private Struct struct;
+    @Transient
+    @JsonProperty("editable")
+    private int editable = 1;
 
     public ManagerInfo() {
     }
@@ -40,9 +43,7 @@ public class ManagerInfo {
         this.struct = struct;
         this.editable = editable;
     }
-    @Transient
-    @JsonProperty("editable")
-    private int editable = 1;
+
 
     public String getLastname() {
         return lastname;
