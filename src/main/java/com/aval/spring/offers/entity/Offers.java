@@ -1,5 +1,7 @@
 package com.aval.spring.offers.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.persistence.*;
 
 @Entity
@@ -12,7 +14,6 @@ public class Offers {
     @Column(name = "name")
     private String name;
 
-
     @OneToOne
     @JoinColumn(name = "id")
     private OfferFeedback feedback;
@@ -21,14 +22,20 @@ public class Offers {
     @JoinColumn(name = "category")
     private OfferSubject subject;
 
+    @Transient
+    @JsonProperty("completed")
+    private int completed = 1;
+
+
     public Offers() {
     }
 
-    public Offers(int id, String name, OfferFeedback feedback, OfferSubject subject) {
+    public Offers(int id, String name, OfferFeedback feedback, OfferSubject subject, int completed) {
         this.id = id;
         this.name = name;
         this.feedback = feedback;
         this.subject = subject;
+        this.completed = completed;
     }
 
     public int getId() {
@@ -61,5 +68,13 @@ public class Offers {
 
     public void setSubject(OfferSubject subject) {
         this.subject = subject;
+    }
+
+    public int getCompleted() {
+        return completed;
+    }
+
+    public void setCompleted(int completed) {
+        this.completed = completed;
     }
 }

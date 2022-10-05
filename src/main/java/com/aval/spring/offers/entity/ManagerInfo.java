@@ -1,6 +1,7 @@
 package com.aval.spring.offers.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.*;
 import java.util.List;
@@ -30,14 +31,18 @@ public class ManagerInfo {
     public ManagerInfo() {
     }
 
-    public ManagerInfo(String id, String lastname, String firstname, String patronymic, List<OfferFeedback> offerFeedback, Struct struct) {
+    public ManagerInfo(String id, String lastname, String firstname, String patronymic, List<OfferFeedback> offerFeedback, Struct struct, int editable) {
         this.id = id;
         this.lastname = lastname;
         this.firstname = firstname;
         this.patronymic = patronymic;
         this.offerFeedback = offerFeedback;
         this.struct = struct;
+        this.editable = editable;
     }
+    @Transient
+    @JsonProperty("editable")
+    private int editable = 1;
 
     public String getLastname() {
         return lastname;
@@ -77,5 +82,17 @@ public class ManagerInfo {
 
     public void setStruct(Struct struct) {
         this.struct = struct;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public int getEditable() {
+        return editable;
+    }
+
+    public void setEditable(int editable) {
+        this.editable = editable;
     }
 }
